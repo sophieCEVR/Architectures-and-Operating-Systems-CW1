@@ -1,0 +1,14 @@
+#!/bin/bash
+
+tempFile=$(mktemp)
+tempReverse=$(mktemp)
+sFiles=$(mktemp)
+pastedFiles=$(mktemp)
+
+
+cat $1 | tr ' ' '\n' | grep -v '.-' | tr -d '[:punct:]' | tr [:upper:] [:lower:] | tr -d [:digit:] | sort | tr -s '\n' | uniq -c | sort -bnr >  $tempFile
+cat $tempFile | rev  | tr -d [:digit:] | tr -s ' ' > $tempReverse
+cat $tempReverse | tr -s [:alpha:] > $sFiles
+paste -d ' ' $tempFile $tempReverse $sFiles | tr -s ' ' > $pastedFiles
+cat $pastedFiles | awk 'BEGIN { FS = " " } {for (i = 1; i <= NF; i=i+4) if ( length($2) > 2 && length($4) > 1 && substr($2,1,length($2)) == substr($3,1,length($2)) ) print $1 , $2 } '
+
