@@ -1,9 +1,11 @@
-# Architectures&amp;Operating Systems Coursework 1
+# Architectures & Operating Systems Coursework 1 # 
 
-###Coursework Description
+Coursework 1 completed for Architectures & Operating Systems module at University of East Anglia. 
+
+## Coursework Description ##
 Required to write a Bash script that will identify all of the palindromic words comprising a text. Case insensitive.
 
-###Running
+## Running ##
 To run this script, please clone the directory and run the command:
 
 ```bash
@@ -17,6 +19,7 @@ In order to run the script in this case, please run the below command.
  ./palindrome <yourFile.txt> > <outputFileName.txt>
 ```
 
-###Grade Received
+## Grade Received ##
 Percentile mark received for this coursework : 78% 
+
 Grade : First
